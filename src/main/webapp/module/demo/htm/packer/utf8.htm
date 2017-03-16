@@ -1,0 +1,30 @@
+<html>
+<script>
+var XStr=String.prototype;
+XStr.toHTML=function(){return this.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\'/g,"&apos;").replace(/\"/g,"&quot;").replace(/\n/g,"<br>").replace(/\ /g,"&nbsp;").replace(/\t/g,"&nbsp;&nbsp;&nbsp;&nbsp;")};
+XStr.containUnvalid=function(){return this.indexOf("'")>=0;}
+XStr.replaceAll=function(s,t){return this.replace(new RegExp(s,"gm"),t)};
+XStr.replaceUnvalid=function(){return this.replace("'",'"')}
+XStr.trim=function(){return this.replace(/(^\s*)|(\s*$)/g,"")}
+XStr.lTrim=function(){return this.replace(/(^\s*)/g,"")}
+XStr.rTrim=function(){return this.replace(/(\s*$)/g,"")}
+XStr.isInteger=function(){return(this.isEmpty()||/^(\-?)(\d+)$/.test(this))};
+XStr.toUTF8=function(){return this.replace(/[^\u0000-\u00FF]/g,function($0){return escape($0).replaceAll('%','\\')})};
+XStr.toCN=function(){eval('var _V="'+this+'"');return _V;};
+XStr.isAllChinese=function(){return /^([\u4E00-\u9FA5])*$/g.test(this)}
+XStr.isContainChinese=function(){return /[\u4e00-\u9fa5\uf900-\ufa2d]/.test(this)}
+XStr.byteLength=function(){return this.replace(/[^\\x00-\\xff]/g,"**").length;}
+XStr.isMaskReg=function(pat){if (this.isEmpty())return true;return new RegExp(pat,"gi").test(this)}
+
+</script>
+<head>
+ <title>UTF8</title>
+</head>
+<body id="packer">
+<textarea id='src' rows=12 cols=100></textarea>
+<br><textarea id='target' rows=12 cols=100></textarea>
+<br><button onclick="document.getElementById('target').value=document.getElementById('src').value.toUTF8()">UTF8</button>&nbsp;&nbsp;&nbsp;
+<button onclick="document.getElementById('target').value=document.getElementById('src').value.toCN()">CN</button>&nbsp;&nbsp;&nbsp;
+<button onclick="document.getElementById('target').value=document.getElementById('src').value.toHTML()">HTML</button>&nbsp;&nbsp;&nbsp;
+</body>
+</html>

@@ -1,0 +1,24 @@
+<sql jt="tccMasterRJT">
+	<select id="transtotal" class="int" first="true">
+	<![CDATA[
+			   select count(xid) from tcc_transaction where 1=1
+			   <#if xid?exists&&xid!=''>and xid like '%${xid}%'</#if>
+			   <#if gname?exists&&gname!=''>and gname='${gname}'</#if>
+			   <#if sn?exists&&sn!=''>and sn like '%${sn}%'</#if>
+	]]>
+	</select>
+	<select id="trans" paging="true">
+	<![CDATA[
+			   select * from tcc_transaction where 1=1
+			   <#if xid?exists&&xid!=''>and xid like '%${xid}%'</#if>
+			   <#if gname?exists&&gname!=''>and gname='${gname}'</#if>
+			   <#if sn?exists&&sn!=''>and sn like '%${sn}%'</#if>
+			   order by createtm desc
+	]]>
+	</select>
+	<select id="terminator">
+	<![CDATA[
+			   select * from tcc_terminator where xid='${xid}'
+	]]>
+	</select>
+</sql>

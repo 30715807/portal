@@ -1,0 +1,19 @@
+<sql debug="true" jt="brhMasterRJT">
+  <!-- 查询交易类型代码列表 -->	
+  <select id="queryTransTypeList">
+	<![CDATA[
+		    select itemno as value,itemname as text
+			from code_library  
+			where codeno = 'TransCode' and isinuse = '1'
+	  ]]>
+  </select>
+  
+   <!-- 查询交易记录状态代码列表 -->	
+  <select id="queryTransStatusList">
+	<![CDATA[
+		    select itemno as value,itemname as text
+			from code_library  
+			where codeno = 'TransStatus' and isinuse = '1'
+	  ]]>
+  </select>
+</sql>

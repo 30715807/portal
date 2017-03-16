@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<!--  <property name="LOG_HOME" value="${webapp.boc}/logs" /> -->
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<Encoding>UTF-8</Encoding>
+		<layout class="ch.qos.logback.classic.PatternLayout">
+			<pattern>[%d{MM-dd HH:mm:ss.SSS} %-5level %logger{30}] [%X{trace} %X{location}] - %msg%n</pattern>
+		</layout>
+	</appender>
+	<appender name="MAIN"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<Encoding>UTF-8</Encoding>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<FileNamePattern>${webapp.boc}/logs/boc.%d{yyyy-MM-dd}.log</FileNamePattern>
+			<MaxHistory>30</MaxHistory>
+		</rollingPolicy>
+		<layout class="ch.qos.logback.classic.PatternLayout">
+			<pattern>[%d{MM-dd HH:mm:ss.SSS} %-5level %logger{30}] [%X{trace} %X{location}] - %msg%n</pattern>
+		</layout>
+		<triggeringPolicy
+			class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+			<MaxFileSize>100MB</MaxFileSize>
+		</triggeringPolicy>
+	</appender>
+
+	<logger name="freemarker" level="WARN" additivity="false">
+		<appender-ref ref="MAIN" />
+	</logger>
+	<logger name="org" level="INFO" additivity="false">
+		<appender-ref ref="MAIN" />
+	</logger>
+	<logger name="org.apache" level="WARN" additivity="false">
+		<appender-ref ref="MAIN" />
+	</logger>
+	<logger name="spc" level="INFO" additivity="false">
+		<appender-ref ref="MAIN" />
+	</logger>
+	<logger name="com.alibaba.dubbo" level="INFO" additivity="false">
+		<appender-ref ref="MAIN" />
+	</logger>
+	
+	<logger name="spc.webos.web.view.ExceptionView" level="DEBUG" additivity="false">
+		<appender-ref ref="MAIN" />
+	</logger>
+
+	<root level="INFO">
+		<appender-ref ref="MAIN" />
+	</root>
+</configuration>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:util="http://www.springframework.org/schema/util" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jee="http://www.springframework.org/schema/jee" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd
+		http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-3.0.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
+	<bean id="filter.chainProxy" class="spc.webos.web.filter.FilterChainProxy">
+		<property name="filters">
+			<list>
+				<bean class="spc.webos.web.filter.security.SessionURLSecurityFilter"
+					p:loginService-ref="loginService">
+					<property name="antPathURLPattern">
+						<list>
+							<value>/js/**</value>
+							<value>/p/**</value>
+							<value>/ext/**</value>
+							<value>/v</value>
+							<value>/**/*.ftl</value>
+							<value>/logs/*</value>
+						</list>
+					</property>
+					<property name="definitionSource">
+						<value>
+							/js/**=public,post
+							/ext/**=public,get,post
+							/p/*/p_*/**=public,get
+							/p/*/sg_*/**=login,get,sget
+							/p/**=login,get
+							/v=public,get
+							/**=private
+						</value>
+					</property>
+					<property name="errPageSource">
+						<value>
+							/ext/**=json,main/ftl/ex-extjs
+							/js/**=json,main/ftl/ex-js
+							/p/**=page,main/ftl/error
+						</value>
+					</property>
+				</bean>
+				<bean class="spc.webos.web.filter.ResponseHeaderFilter"
+					init-method="init">
+					<property name="antPathURLPattern">
+						<list>
+							<!-- <value>/res/**@{"Cache-Control":"max-age=720000"}</value> -->
+							<value>/module/**@{"Cache-Control":"max-age=720000"}</value>
+							<value>/p/main/dict@{"Cache-Control":"max-age=720000","Content-Type":"application/javascript;charset=utf-8"}</value>
+							<value>/ext/s/extjs/js@{"Cache-Control":"max-age=720000","Content-Type":"application/javascript;charset=utf-8"}</value>
+						</list>
+					</property>
+				</bean>
+				<bean class="spc.webos.web.filter.gzip.GZIPFilter">
+					<property name="antPathURLPattern">
+						<list>
+							<!-- <value>/res/css/**</value> <value>/res/js/**</value> <value>/**/*.htm</value> -->
+							<value>/ext/**</value>
+							<value>/p/**</value>
+						</list>
+					</property>
+				</bean>
+				<!--  
+				<bean class="spc.webos.web.filter.cache.CacheFilter">
+					<property name="antPathURLPattern">
+						<list>
+							<value>/p/main/dict</value>
+						</list>
+					</property>
+				</bean>
+				-->
+				<bean class="spc.webos.web.filter.multipart.MultipartFilter">
+					<property name="antPathURLPattern">
+						<list>
+							<value>/**</value>
+						</list>
+					</property>
+				</bean>
+			</list>
+		</property>
+	</bean>
+</beans>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ItemSearchResponse xmlns="http://webservices.amazon.com/AWSECommerceService/2006-06-28">
+    
+        <Item author.name="Sidney Sheldon">
+            <ASIN>0446355453</ASIN>
+            <DetailPageURL>
+                http://www.amazon.com/gp/redirect.html%3FASIN=0446355453%26tag=ws%26lcode=xm2%26cID=2025%26ccmID=165953%26location=/o/ASIN/0446355453%253FSubscriptionId=1A7XKHR5BYD0WPJVQEG2
+            </DetailPageURL>
+            <ItemAttributes>
+                <Manufacturer>Warner Books</Manufacturer>
+                <ProductGroup>Book</ProductGroup>
+                <Title>Master of the Game</Title>
+            </ItemAttributes>
+        </Item>
+        <Item author.name="Sidney Sheldon">
+            <ASIN>0446613657</ASIN>
+            <DetailPageURL>
+                http://www.amazon.com/gp/redirect.html%3FASIN=0446613657%26tag=ws%26lcode=xm2%26cID=2025%26ccmID=165953%26location=/o/ASIN/0446613657%253FSubscriptionId=1A7XKHR5BYD0WPJVQEG2
+            </DetailPageURL>
+            <ItemAttributes>
+                <Manufacturer>Warner Books</Manufacturer>
+                <ProductGroup>Book</ProductGroup>
+                <Title>Are You Afraid of the Dark?</Title>
+            </ItemAttributes>
+        </Item> 
+    
+</ItemSearchResponse>

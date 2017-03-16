@@ -1,0 +1,16 @@
+.ux-notification-window .x-window-body {
+	text-align: center;
+	padding: 15px 5px 15px 5px;
+}
+
+.red{color: red}
+.boldtxt{font-weight:bold}
+.bottom{vertical-align: bottom;}
+.middle{vertical-align: middle;}
+.hand{cursor:pointer}
+
+/*-------按钮样式------------*/
+a.btn{color:#fff;text-decoration: none;}
+.btn{ display: inline-block; overflow: hidden;margin:0 5px;text-align: center; border-radius: 0px; cursor: pointer; }
+.bbtn{ border: #5fa2dd solid 1px; background: #5fa2dd; }
+.small{font-size: 12px;height: 28px;line-height: 26px;width: 60px;}

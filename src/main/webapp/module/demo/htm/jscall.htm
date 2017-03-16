@@ -1,0 +1,91 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<script src="./res/js/mui.min.js"></script>
+		<script src="./res/js/ext-all.js"></script>
+		<link href="./res/css/mui.min.css" rel="stylesheet" />
+	</head>
+	<script type="text/javascript" charset="utf-8">
+		function call_onclick(event) {
+				var uri = '/portal/js/';
+				uri += document.getElementById("service").value;
+				uri += "/";
+				uri += document.getElementById("method").value;
+				var params = document.getElementById("args").value;
+				/*
+				mui.ajax(uri, {
+					data: params,
+					dataType: 'json',
+					type: 'post',
+					timeout: 10000,
+					success: function(data) {
+						document.getElementById("result").innerHTML = JSON.stringify(data);
+					},
+					error: function(xhr, type, errorThrown) {
+						alert(type + ':' + errorThrown);
+					}
+				});
+				*/
+				//alert(Ext.util.JSON.decode(params));
+				Ext.Ajax.request({method: 'POST',
+               		url:uri,
+	                params: params,
+        	        success: function (r, o) {
+        	        	//alert(r.responseText)
+        	        	Ext.getDom("result").innerHTML =  r.responseText;
+        	        	// var responseJson = Ext.util.JSON.decode(r.responseText)
+                	},
+                	failure: function (r, o) {
+                    	Ext.getDom("result").innerHTML =  'http status：' + r.status+', text:'+r.responseText;
+                    	alert(r.status==555?Ext.util.JSON.decode(r.responseText).message:('失败状态'+r.status));
+                	}	
+          	   });
+			}
+	</script>
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon "></a>
+			<h1 class="mui-title">Dubbo Service Call</h1>
+		</header>
+		<div class="mui-content">
+			<form id='login-form' class="mui-input-group">
+				<div class="mui-input-row">
+					<label>服务名</label>
+					<input id='service' type="text" class="mui-input-clear mui-input" value='sso' placeholder="请输入dubbo服务名">
+				</div>
+				<div class="mui-input-row">
+					<label>方法名</label>
+					<input id='method' type="text" class="mui-input-clear mui-input" value="sayHello" placeholder="请输入dubbo方法名">
+				</div>
+			</form>
+			<div class="mui-input-row">
+				<p>参数</p>
+				<textarea id='args' rows="5" cols="80" placeholder="请输入dubbo参数">["chenjs"]</textarea>
+			</div>
+			<div class="mui-input-row">
+				<p>ajax:</p>
+				<div id='ajax'>
+					<br>Ext.Ajax.request({method: 'POST',
+	               		<br>&nbsp;&nbsp;&nbsp;&nbsp;url:<b>'/boc/js/sso/sayHello'</b>,
+		                <br>&nbsp;&nbsp;&nbsp;&nbsp;params:<b>'["cjs"]'</b>,
+	        	        <br>&nbsp;&nbsp;&nbsp;&nbsp;success:function(r,o){
+	        	        	<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ext.getDom("result").innerHTML =  r.responseText;
+	                	<br>&nbsp;&nbsp;&nbsp;&nbsp;},
+	                	<br>&nbsp;&nbsp;&nbsp;&nbsp;failure:function(r,o){
+	                    	<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ext.getDom("result").innerHTML =  'http status：' + r.status+', text:'+r.responseText;
+	                	<br>&nbsp;&nbsp;&nbsp;&nbsp;}	
+          	   		<br>});
+				</div>
+			</div>
+			<div class="mui-input-row">
+				<p>返回结果:</p>
+				<div id='result'></div>
+			</div>
+			<div class="mui-content-padded">
+				<button id='call' class="mui-btn mui-btn-block mui-btn-primary" onclick="call_onclick()">Call</button>
+			</div>
+		</div>
+	</body>
+</html>

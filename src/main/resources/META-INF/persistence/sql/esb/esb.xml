@@ -1,0 +1,57 @@
+<sql debug="true" jt="esbMasterRJT" slave="esbSlaveJT">
+	<select id="node" >
+			   select * from esb_node
+	</select>
+	<select id="nodeservice" prepare="true">
+			   select * from esb_nodeservice where appcd=:appcd
+	</select>
+	<select id="endpoint" >
+			   select * from esb_endpoint
+	</select>
+	
+	<select id="logtotal" class="int" first="true">
+	<![CDATA[
+			   select count(seq) from esb_log where 1=1
+			   <#if sn?exists&&sn!=''>and msgsn like '%${sn}%'</#if>
+	]]>
+	</select>
+	<select id="log" paging="true">
+	<![CDATA[
+			   select * from esb_log where 1=1
+			   <#if sn?exists&&sn!=''>and msgsn like '%${sn}%'</#if>
+			   order by seq desc
+	]]>
+	</select>
+	<select id="logdetail" class="spc.esb.model.LogDetailPO" first="true">
+	<![CDATA[
+			   select * from esb_log_detail where seq='${seq}'
+	]]>
+	</select>
+	
+	<select id="alarmtotal" class="int" first="true">
+	<![CDATA[
+			   select count(seq) from esb_alarm where 1=1
+			   <#if sn?exists&&sn!=''>and msgsn like '%${sn}%'</#if>
+	]]>
+	</select>
+	<select id="alarm" paging="true">
+	<![CDATA[
+			   select * from esb_alarm where 1=1
+			   <#if sn?exists&&sn!=''>and msgsn like '%${sn}%'</#if>
+			   order by seq desc
+	]]>
+	</select>
+	
+	<select id="service" paging="true">
+	<![CDATA[
+			   select * from esb_service where 1=1
+			   <#if serviceid?exists&&serviceid!=''>and serviceid like '%${serviceid}%'</#if>
+			   <#if category?exists&&category!=''>and category like '%${category}%'</#if>
+			   order by serviceid
+	]]>
+	</select>
+	<select id="treemsgschema" class="map">
+			select seq id,parentseq parentid,esbname,rcvname,fdesc text,ftyp,optional,minlen,maxlen,deci,sig,tagattr from esb_msgschema where msgcd='${msgcd!''}'
+			union select 0 id,null parentid,null esbname,null rcvname,'Root' text,ftyp,optional,minlen,maxlen,deci,sig,tagattr from esb_msgschema where msgcd='${msgcd!''}' and seq=1
+	</select>
+</sql>

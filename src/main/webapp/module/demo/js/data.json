@@ -1,0 +1,380 @@
+{
+	"ExtTime" : [{
+				"time" : "00:00",
+				"visit" : 60
+			}, {
+				"time" : "01:00",
+				"visit" : 33
+			}, {
+				"time" : "02:00",
+				"visit" : 47
+			}, {
+				"time" : "03:00",
+				"visit" : 20
+			}, {
+				"time" : "04:00",
+				"visit" : 18
+			}, {
+				"time" : "05:00",
+				"visit" : 36
+			}, {
+				"time" : "06:00",
+				"visit" : 54
+			}, {
+				"time" : "07:00",
+				"visit" : 28
+			}, {
+				"time" : "08:00",
+				"visit" : 64
+			}, {
+				"time" : "09:00",
+				"visit" : 44
+			}, {
+				"time" : "10:00",
+				"visit" : 30
+			}, {
+				"time" : "11:00",
+				"visit" : 34
+			}, {
+				"time" : "12:00",
+				"visit" : 17
+			}, {
+				"time" : "13:00",
+				"visit" : 20
+			}, {
+				"time" : "14:00",
+				"visit" : 38
+			}, {
+				"time" : "15:00",
+				"visit" : 31
+			}, {
+				"time" : "16:00",
+				"visit" : 54
+			}, {
+				"time" : "17:00",
+				"visit" : 38
+			}, {
+				"time" : "18:00",
+				"visit" : 44
+			}, {
+				"time" : "19:00",
+				"visit" : 64
+			}, {
+				"time" : "20:00",
+				"visit" : 40
+			}, {
+				"time" : "21:00",
+				"visit" : 14
+			}, {
+				"time" : "22:00",
+				"visit" : 47
+			}, {
+				"time" : "23:00",
+				"visit" : 30
+			}, {
+				"time" : "24:00",
+				"visit" : 68
+			}],
+	"ExtDay" : [{
+				"day" : "01",
+				"orange" : 60,
+				"apple" : 33
+			}, {
+				"day" : "02",
+				"orange" : 47,
+				"apple" : 25
+			}, {
+				"day" : "03",
+				"orange" : 20,
+				"apple" : 63
+			}, {
+				"day" : "04",
+				"orange" : 18,
+				"apple" : 35
+			}, {
+				"day" : "05",
+				"orange" : 36,
+				"apple" : 82
+			}, {
+				"day" : "06",
+				"orange" : 54,
+				"apple" : 17
+			}, {
+				"day" : "07",
+				"orange" : 28,
+				"apple" : 35
+			}, {
+				"day" : "08",
+				"orange" : 64,
+				"apple" : 63
+			}, {
+				"day" : "09",
+				"orange" : 44,
+				"apple" : 53
+			}, {
+				"day" : "10",
+				"orange" : 30,
+				"apple" : 15
+			}, {
+				"day" : "11",
+				"orange" : 34,
+				"apple" : 32
+			}, {
+				"day" : "12",
+				"orange" : 17,
+				"apple" : 31
+			}, {
+				"day" : "13",
+				"orange" : 20,
+				"apple" : 32
+			}, {
+				"day" : "14",
+				"orange" : 38,
+				"apple" : 55
+			}, {
+				"day" : "15",
+				"orange" : 31,
+				"apple" : 31
+			}, {
+				"day" : "16",
+				"orange" : 54,
+				"apple" : 9
+			}, {
+				"day" : "17",
+				"orange" : 38,
+				"apple" : 31
+			}, {
+				"day" : "18",
+				"orange" : 44,
+				"apple" : 32
+			}, {
+				"day" : "19",
+				"orange" : 64,
+				"apple" : 56
+			}, {
+				"day" : "20",
+				"orange" : 40,
+				"apple" : 43
+			}, {
+				"day" : "21",
+				"orange" : 14,
+				"apple" : 32
+			}, {
+				"day" : "22",
+				"orange" : 47,
+				"apple" : 66
+			}, {
+				"day" : "23",
+				"orange" : 30,
+				"apple" : 51
+			}, {
+				"day" : "24",
+				"orange" : 68,
+				"apple" : 35
+			}, {
+				"day" : "25",
+				"orange" : 31,
+				"apple" : 62
+			}, {
+				"day" : "26",
+				"orange" : 54,
+				"apple" : 41
+			}, {
+				"day" : "27",
+				"orange" : 38,
+				"apple" : 25
+			}, {
+				"day" : "28",
+				"orange" : 44,
+				"apple" : 31
+			}, {
+				"day" : "29",
+				"orange" : 64,
+				"apple" : 53
+			}, {
+				"day" : "30",
+				"orange" : 40,
+				"apple" : 31
+			}, {
+				"day" : "31",
+				"orange" : 20,
+				"apple" : 11
+			}],
+	"ExtBar" : [{
+				"name" : "Java",
+				"value" : 112
+			}, {
+				"name" : "C",
+				"value" : 33
+			}, {
+				"name" : "C++",
+				"value" : 47
+			}, {
+				"name" : "Basic",
+				"value" : 20
+			}, {
+				"name" : "PHP",
+				"value" : 18
+			}, {
+				"name" : "C#",
+				"value" : 36
+			}, {
+				"name" : "Python",
+				"value" : 54
+			}, {
+				"name" : "Pert",
+				"value" : 28
+			}, {
+				"name" : "Delphi",
+				"value" : 64
+			}, {
+				"name" : "JScript",
+				"value" : 44
+			}, {
+				"name" : "Ruby",
+				"value" : 30
+			}, {
+				"name" : "PL/SQL",
+				"value" : 34
+			}, {
+				"name" : "SAS",
+				"value" : 17
+			}, {
+				"name" : "Logo",
+				"value" : 20
+			}, {
+				"name" : "Pascal",
+				"value" : 38
+			}, {
+				"name" : "ABAP",
+				"value" : 31
+			}, {
+				"name" : "AScript",
+				"value" : 54
+			}, {
+				"name" : "RPG",
+				"value" : 38
+			}, {
+				"name" : "Lua",
+				"value" : 44
+			}, {
+				"name" : "Td/Tk",
+				"value" : 64
+			}, {
+				"name" : "NXT-G",
+				"value" : 40
+			}, {
+				"name" : "ML",
+				"value" : 14
+			}, {
+				"name" : "Awk",
+				"value" : 47
+			}, {
+				"name" : "Focus",
+				"value" : 30
+			}, {
+				"name" : "Scala",
+				"value" : 68
+			}],
+	"ExtLine" : [{
+				"name" : "中01",
+				"data1" : 60,
+				"data2" : 33,
+				"data3" : 53
+			}, {
+				"name" : "02",
+				"data1" : 47,
+				"data2" : 25,
+				"data3" : 33
+			}, {
+				"name" : "03",
+				"data1" : 20,
+				"data2" : 63,
+				"data3" : 23
+			}, {
+				"name" : "04",
+				"data1" : 18,
+				"data2" : 35,
+				"data3" : 56
+			}, {
+				"name" : "05",
+				"data1" : 36,
+				"data2" : 82,
+				"data3" : 23
+			}, {
+				"name" : "06",
+				"data1" : 54,
+				"data2" : 17,
+				"data3" : 73
+			}, {
+				"name" : "07",
+				"data1" : 28,
+				"data2" : 35,
+				"data3" : 12
+			}, {
+				"name" : "08",
+				"data1" : 64,
+				"data2" : 63,
+				"data3" : 32
+			}, {
+				"name" : "09",
+				"data1" : 44,
+				"data2" : 53,
+				"data3" : 45
+			}, {
+				"name" : "10",
+				"data1" : 30,
+				"data2" : 15,
+				"data3" : 23
+			}, {
+				"name" : "11",
+				"data1" : 34,
+				"data2" : 32,
+				"data3" : 62
+			}, {
+				"name" : "12",
+				"data1" : 17,
+				"data2" : 31,
+				"data3" : 34
+			}, {
+				"name" : "13",
+				"data1" : 20,
+				"data2" : 32,
+				"data3" : 12
+			}, {
+				"name" : "14",
+				"data1" : 38,
+				"data2" : 55,
+				"data3" : 61
+			}, {
+				"name" : "15",
+				"data1" : 31,
+				"data2" : 31,
+				"data3" : 32
+			}, {
+				"name" : "16",
+				"data1" : 54,
+				"data2" : 9,
+				"data3" : 53
+			}, {
+				"name" : "17",
+				"data1" : 38,
+				"data2" : 31,
+				"data3" : 31
+			}, {
+				"name" : "18",
+				"data1" : 44,
+				"data2" : 32,
+				"data3" : 32
+			}, {
+				"name" : "19",
+				"data1" : 64,
+				"data2" : 56,
+				"data3" : 25
+			}, {
+				"name" : "20",
+				"data1" : 40,
+				"data2" : 43,
+				"data3" : 61
+			}]
+}

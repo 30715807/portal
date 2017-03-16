@@ -1,0 +1,9 @@
+{
+	success:false,
+	code:"${EX_CODE!("999999")}",
+	message:${_stringx.str2utf8(_jsonutil.obj2json(EX_MSG))},
+	traceNo:"${EX_TRC!("")}",
+	location:"${EX_LOC!("")}",
+	uri:"${uri!("")}",
+	queryString:"${queryString!("")}"
+}

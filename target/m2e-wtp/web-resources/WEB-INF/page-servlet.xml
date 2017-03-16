@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jee="http://www.springframework.org/schema/jee" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd
+	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+	http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-3.0.xsd
+	http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd"
+	default-lazy-init="false">
+
+	<context:annotation-config />
+	<bean id="exView" class="spc.webos.web.view.ExceptionView" />
+	<bean id="pdfView" class="spc.webos.web.view.PDFView" />
+	<bean id="wordView" class="spc.webos.web.view.MSView" />
+	<bean id="excelView" class="spc.webos.web.view.MSView" p:fileExt="xls" />
+	<bean id="freemarkerConfigurer"
+		class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer"
+		p:configuration-ref="ftlCfg" />
+	<bean id="viewResolver" class="spc.webos.web.view.FreeMarkerViewResolver"
+		p:suffix=".ftl" p:exposeSpringMacroHelpers="true" p:contentType="text/html;charset=UTF-8" />
+	<bean id="beanNameViewResolver"
+		class="org.springframework.web.servlet.view.BeanNameViewResolver"
+		p:order="2" />
+	<bean id="exceptionResolver"
+		class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver"
+		p:order="1">
+		<property name="exceptionMappings">
+			<props>
+				<prop key="Exception">exView</prop>
+			</props>
+		</property>
+	</bean>
+	<bean id="defaultHandlerMapping" class="spc.webos.web.handler.PathNameUrlHandlerMapping"
+		p:order="3" />
+
+	<bean name="/" class="spc.webos.web.controller.PageCtrller" />
+</beans>

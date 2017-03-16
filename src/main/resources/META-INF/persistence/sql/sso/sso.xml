@@ -1,0 +1,154 @@
+<sql>
+	<select id="chart">
+		select name,1 value from sys_user
+	</select>
+	
+	<select id="dictUsers">
+		select code value,name text from sys_user
+	</select>
+
+	<select id="retcdtotal" class="int" first="true" auth="public">
+	<![CDATA[
+		select count(retcd) from sys_retcode
+		where 1=1
+		<#if retcd?exists&&retcd!=''>and retcd like '%${retcd}%'</#if>
+	]]>
+	</select>
+	<select id="retcd" paging="true" auth="public">
+		<![CDATA[
+		select * from sys_retcode
+		where 1=1
+		<#if retcd?exists&&retcd!=''>and retcd like '%${retcd}%'</#if>
+		order by retcd
+		]]>
+	</select>
+	
+	<select id="sqltotal" class="int" first="true">
+	<![CDATA[
+		select count(sys) from sys_sql
+		where 1=1
+		<#if sys?exists&&sys!=''>and sys='${sys}'</#if>
+		<#if mdlid?exists&&mdlid!=''>and (mdl like '%${mdlid}%' or id like '%${mdlid}%')</#if>
+	]]>
+	</select>
+	<select id="sql" paging="true">
+		<![CDATA[       
+		select mdl,id sid,resultclass,ds,firstrowonly,prepared,text,text1,text2,text3,sys,remark
+		from sys_sql
+		where 1=1
+		<#if sys?exists&&sys!=''>and sys='${sys}'</#if>
+		<#if mdlid?exists&&mdlid!=''>and (mdl like '%${mdlid}%' or id like '%${mdlid}%')</#if>
+		order by sys,id
+		]]>
+	</select>
+	
+	<select id="ftltotal" class="int" first="true">
+	<![CDATA[
+		select count(sys) from sys_ftl
+		where 1=1
+		<#if sys?exists&&sys!=''>and sys='${sys}'</#if>
+		<#if id?exists&&id!=''>and id like '%${id}%'</#if>
+	]]>
+	</select>
+	<select id="ftl" paging="true">
+		<![CDATA[
+		select * from sys_ftl
+		where 1=1
+		<#if sys?exists&&sys!=''>and sys='${sys}'</#if>
+		<#if id?exists&&id!=''>and id like '%${id}%'</#if>
+		order by sys,id
+		]]>
+	</select>
+	
+	<select id="jstotal" class="int" first="true">
+	<![CDATA[
+		select count(sys) from sys_js
+		where 1=1
+		<#if sys?exists&&sys!=''>and sys='${sys}'</#if>
+		<#if id?exists&&id!=''>and id like '%${id}%'</#if>
+	]]>
+	</select>
+	<select id="js" paging="true">
+		<![CDATA[
+		select * from sys_js
+		where 1=1
+		<#if sys?exists&&sys!=''>and sys='${sys}'</#if>
+		<#if id?exists&&id!=''>and id like '%${id}%'</#if>
+		order by sys,id
+		]]>
+	</select>
+	
+	<select id="alarmtotal" class="int" first="true">
+	<![CDATA[
+		select count(id) from sys_alarm
+		where 1=1
+		<#if sys?exists&&sys!=''>and sys='${sys}'</#if>
+		<#if id?exists&&id!=''>and id like '%${id}%'</#if>
+	]]>
+	</select>
+	<select id="alarm">
+	<![CDATA[
+		select * from sys_alarm
+		where 1=1
+		<#if sys?exists&&sys!=''>and sys='${sys}'</#if>
+		<#if id?exists&&id!=''>and id like '%${id}%'</#if>
+		order by sys,id
+		]]>
+	</select>
+
+	<select id="configtotal" class="int" first="true">
+	<![CDATA[
+		select count(code) from sys_config
+		where 1=1
+		<#if code?exists&&code!=''>and code like '%${code}%'</#if>
+	]]>
+	</select>
+	<select id="config" paging="true">
+		<![CDATA[
+		select * from sys_config where 1=1
+		<#if code?exists&&code!=''>and code like '%${code}%'</#if>
+		order by code
+		]]>
+	</select>
+
+	<select id="dicttotal" class="int" first="true">
+	<![CDATA[
+		select count(code) from sys_dict
+		where 1=1
+		<#if code?exists&&code!=''>and code='${code}'</#if>
+		<#if dtype?exists&&dtype!=''>and dtype='${dtype}'</#if>
+	]]>
+	</select>
+	<select id="dict" paging="true">
+		<![CDATA[
+		select * from sys_dict where 1=1
+		<#if code?exists&&code!=''>and code='${code}'</#if>
+		<#if dtype?exists&&dtype!=''>and dtype='${dtype}'</#if>
+		order by dtype,dlevel,dorder
+		]]>
+	</select>
+
+	<select id="menu" class="map">
+		select mid id,mid,parentid,text,win,js,config,morder,service,sqlid,mmenu from sys_menu
+		order by parentid,morder
+	</select>
+
+	<select id="role">
+		select * from sys_role
+	</select>
+
+	<select id="usertotal" class="int" first="true">
+	<![CDATA[
+		select count(code) from sys_user
+		where 1=1
+		<#if code?exists&&code!=''>and code='${code}'</#if>
+	]]>
+	</select>
+	<select id="user" paging="true">
+		<![CDATA[
+		select * from sys_user where 1=1
+		<#if code?exists&&code!=''>and code='${code}'</#if>
+		order by code
+		]]>
+	</select>
+</sql>
