@@ -18,7 +18,7 @@
 						<list>
 							<value>/js/**</value>
 							<value>/p/**</value>
-							<value>/ext/**</value>
+							<value>/d/**</value>
 							<value>/v</value>
 							<value>/**/*.ftl</value>
 							<value>/logs/*</value>
@@ -27,7 +27,7 @@
 					<property name="definitionSource">
 						<value>
 							/js/**=public,post
-							/ext/**=public,get,post
+							/d/**=public,get,post
 							/p/*/p_*/**=public,get
 							/p/*/sg_*/**=login,get,sget
 							/p/**=login,get
@@ -37,7 +37,7 @@
 					</property>
 					<property name="errPageSource">
 						<value>
-							/ext/**=json,main/ftl/ex-extjs
+							/d/**=json,main/ftl/ex-data
 							/js/**=json,main/ftl/ex-js
 							/p/**=page,main/ftl/error
 						</value>
@@ -50,7 +50,7 @@
 							<!-- <value>/res/**@{"Cache-Control":"max-age=720000"}</value> -->
 							<value>/module/**@{"Cache-Control":"max-age=720000"}</value>
 							<value>/p/main/dict@{"Cache-Control":"max-age=720000","Content-Type":"application/javascript;charset=utf-8"}</value>
-							<value>/ext/s/extjs/js@{"Cache-Control":"max-age=720000","Content-Type":"application/javascript;charset=utf-8"}</value>
+							<value>/d/s/extjs/js@{"Cache-Control":"max-age=720000","Content-Type":"application/javascript;charset=utf-8"}</value>
 						</list>
 					</property>
 				</bean>
@@ -58,7 +58,7 @@
 					<property name="antPathURLPattern">
 						<list>
 							<!-- <value>/res/css/**</value> <value>/res/js/**</value> <value>/**/*.htm</value> -->
-							<value>/ext/**</value>
+							<value>/d/**</value>
 							<value>/p/**</value>
 						</list>
 					</property>

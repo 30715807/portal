@@ -1,4 +1,4 @@
-<#assign resPath=_conf['app.web.resPath']!(appPath+'/res')>
+<#assign resPath=_cfg.getProperty('app.web.resPath',false,appPath+'/res')>
 <#assign appVersion=_conf['app.version']!'1.0'>
 <html>
 <head>

@@ -14,7 +14,7 @@
 
 	<context:annotation-config />
 	<bean id="serviceView" class="spc.webos.web.view.ServiceView" />
-	<bean id="extjsGridView" class="spc.webos.web.view.ExtjsGridView" />
+	<bean id="gridView" class="spc.webos.web.view.GridView" />
 	<bean id="exView" class="spc.webos.web.view.ExceptionView"
 		p:errPage="main/ftl/ex-extjs" p:contentType="application/json;charset=utf-8"
 		p:status="222" />
@@ -39,7 +39,7 @@
 	<bean id="defaultHandlerMapping" class="spc.webos.web.handler.PathNameUrlHandlerMapping"
 		p:order="3" />
 
-	<bean name="/g" class="spc.webos.web.controller.ExtjsGridCtrller" />
+	<bean name="/g" class="spc.webos.web.controller.GridCtrller" />
 	<bean name="/s" class="spc.webos.web.controller.JSCallCtrller"
 		p:viewName="serviceView" />
 </beans>

@@ -1,7 +1,7 @@
 /**
 author:chenjs
-version:1.7.1
-version date:2017-03-07
+version:1.8.0
+version date:2017-03-27
 */
 Ext.define('form_combo',{extend:'Ext.data.Model',fields:['value','text']});
 var _eval=eval;
@@ -14,7 +14,7 @@ Ext.applyIf(util,{debug:false,
 		reader:{type:'json',rootProperty:'data',totalProperty:'total'},
 		sproxy:function(s,c,store){return function(){
 			var p=[];for(var i=0;i<arguments.length;i++)p.push(arguments[i]);
-			var url=constant.appPath+'ext/g/'+s.replaceAll('\\.','/')+(p.length==0?'?_extds=true&':'?_extds=true&args='+Ext.util.JSON.encode(p));
+			var url=constant.appPath+'d/g/'+s.replaceAll('\\.','/')+(p.length==0?'?_extds=true&':'?_extds=true&args='+Ext.util.JSON.encode(p));
 			url+=c?'&COLUMN='+c:'';
 			if(store){
 				store.proxy={type:'ajax',url:url,reader:util.grid.reader};
@@ -22,7 +22,7 @@ Ext.applyIf(util,{debug:false,
 			} 
 			return {type:'ajax',url:url,reader:util.grid.reader};
 		}},
-		proxy:function(p){var u=constant.appPath+'ext/g?_extds=true&'+p+'&';return {type:'ajax',url:u,_url:u,reader:util.grid.reader}},
+		proxy:function(p){var u=constant.appPath+'d/g?_extds=true&'+p+'&';return {type:'ajax',url:u,_url:u,reader:util.grid.reader}},
 		load:function(s,r,suc,o,e){if(!suc)util.ajax.failure(o.getResponse())},
 		store:function(m,p){
 			if(typeof m=='string')return Ext.create('Ext.data.Store',{model:m,proxy:util.grid.proxy(p),listeners:{load:util.grid.load}})
@@ -73,7 +73,7 @@ Ext.applyIf(util,{debug:false,
 		store:function(s,cfg){return function(){
 			var p=[];for(var i=0;i<arguments.length;i++)p.push(arguments[i])
 			s=s||'extjs.getExtTree';
-			var url=constant.appPath+'ext/s/'+s.replaceAll('\\.','/')+(p.length==0?'_extds=true&':'?_extds=true&args='+Ext.util.JSON.encode(p));
+			var url=constant.appPath+'d/s/'+s.replaceAll('\\.','/')+(p.length==0?'_extds=true&':'?_extds=true&args='+Ext.util.JSON.encode(p));
 			Ext.apply(cfg=cfg||{},{proxy:{type:'ajax',method:'GET',url:url},listeners:{load:function(s,r,suc,o,n,e){if(!suc)util.ajax.failure(o.getResponse())}}});
 			return Ext.create('Ext.data.TreeStore',cfg);
 		}}
@@ -186,7 +186,7 @@ Ext.applyIf(util,{debug:false,
 		if(util.import_js.contains(js))continue;
 		if(!constant.debug)util.import_js.push(js);
 		if(constant.debug&&!js.endsWith('.js')){util.notify('Import JS','loading:'+js)}
-		var url=js.endsWith('.js')?(constant.modulePath+js+'?'+constant.version):(constant.appPath+'ext/s/extjs/js?args=["'+js+'"]&'+constant.version);
+		var url=js.endsWith('.js')?(constant.modulePath+js+'?'+constant.version):(constant.appPath+'d/s/extjs/js?args=["'+js+'"]&'+constant.version);
 		Ext.Ajax.request({method:'GET',disableCaching:constant.debug||!constant.jscache,async:false,url:url,
 			success:function(o){try{_eval(o.responseText)}catch(e){util.notify('JS Error','JS:'+js+'<br>'+e)}},
 			failure:function(){util.notify('\u4E0B\u8F7DJS\u5931\u8D25','\u52A0\u8F7D\u811A\u672C\u5931\u8D25:'+js)}
@@ -309,7 +309,7 @@ function openWin(m,c,js,d){
     if(w){d.setActiveTab(w);return}
 	if(!constant.debug&&util.callWin(c,id,m.text,d))return;
 	if(constant.debug&&!js.endsWith('.js')){util.notify('OpenWin JS','loading:'+js)}
-	var url=js.endsWith('.js')?(constant.modulePath+js+'?'+constant.version):(constant.appPath+'ext/s/extjs/js?args=["'+js+'"]&'+constant.version);
+	var url=js.endsWith('.js')?(constant.modulePath+js+'?'+constant.version):(constant.appPath+'d/s/extjs/js?args=["'+js+'"]&'+constant.version);
 	Ext.Ajax.request({method:'GET',disableCaching:constant.debug||!constant.jscache,url:url,
 		success:function(o){try{_eval(o.responseText);util.callWin(c,id,m.text,d)}catch(e){util.notify('JS Error','JS:'+js+'<br>'+e)}},
 		failure:function(){util.notify('\u4E0B\u8F7D\u811A\u672C\u5931\u8D25','\u811A\u672C:<font color="red">'+js+'</font>')}
