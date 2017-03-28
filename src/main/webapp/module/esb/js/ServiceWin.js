@@ -52,10 +52,10 @@ esb.ServiceWin=function(winId,winName,desk) {
         	selectionchange:function(sm,r){
                 if (r.length){
                 	reqGrid.setTitle('请求报文结构('+r[0].data['reqmsgcd']+')');
-                	reqStore.proxy.url=constant.appPath+"ext/s/extjs/getExtTree?root=true&args=['esb.treemsgschema',{msgcd:'"+r[0].data['reqmsgcd']+"'}]";
+                	reqStore.proxy.url=constant.appPath+"d/s/extjs/getExtTree?root=true&args=['esb.treemsgschema',{msgcd:'"+r[0].data['reqmsgcd']+"'}]";
                 	reqStore.load();
                 	repGrid.setTitle('应答报文结构('+r[0].data['repmsgcd']+')');
-                	repStore.proxy.url=constant.appPath+"ext/s/extjs/getExtTree?root=true&args=['esb.treemsgschema',{msgcd:'"+r[0].data['repmsgcd']+"'}]";
+                	repStore.proxy.url=constant.appPath+"d/s/extjs/getExtTree?root=true&args=['esb.treemsgschema',{msgcd:'"+r[0].data['repmsgcd']+"'}]";
                 	repStore.load();
                 }
             },

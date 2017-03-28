@@ -57,13 +57,13 @@
 		<url-pattern>/p/*</url-pattern>
 	</servlet-mapping>
 	<servlet>
-		<servlet-name>js</servlet-name>
+		<servlet-name>api</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 		<load-on-startup>2</load-on-startup>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>js</servlet-name>
-		<url-pattern>/js/*</url-pattern>
+		<servlet-name>api</servlet-name>
+		<url-pattern>/api/*</url-pattern>
 	</servlet-mapping>
 	<welcome-file-list>
 		<welcome-file>login.htm</welcome-file>

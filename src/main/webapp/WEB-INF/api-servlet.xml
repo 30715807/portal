@@ -13,7 +13,7 @@
 	default-lazy-init="false">
 
 	<context:annotation-config />
-	<bean id="jsCallView" class="spc.webos.web.view.JSCallView" />
+	<bean id="apiView" class="spc.webos.web.view.ApiView" />
 	<bean id="exView" class="spc.webos.web.view.ExceptionView"
 		p:status="555" p:errPage="main/ftl/ex-js" p:contentType="application/json;charset=utf-8" />
 	<bean id="defaultHandlerMapping" class="spc.webos.web.handler.PathNameUrlHandlerMapping"
@@ -31,5 +31,5 @@
 		</property>
 	</bean>
 
-	<bean name="/" class="spc.webos.web.controller.JSCallCtrller" />
+	<bean name="/" class="spc.webos.web.controller.ApiCtrller" />
 </beans>

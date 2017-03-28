@@ -121,7 +121,7 @@ Ext.applyIf(util,{debug:false,
 			var ret,res,p=[];
 			for(var i=0;i<arguments.length;i++){p.push(arguments[i])}
 			Ext.Ajax.request({method:'POST',async:false,
-	            url:constant.appPath+'js/'+s.replaceAll('\\.','/'),
+	            url:constant.appPath+'api/'+s.replaceAll('\\.','/'),
 	            params:p.length==0?'':Ext.util.JSON.encode(p),
 	            failure:f||function(r,o){res=r},
 	            success:function(r,o){if(r.responseText&&r.responseText!='')ret=Ext.util.JSON.decode(r.responseText);}
@@ -132,7 +132,7 @@ Ext.applyIf(util,{debug:false,
         async:function(s,cb,f){return function(){
 			var p=[];
 			for(var i=0;i<arguments.length;i++){p.push(arguments[i])}
-			var url=constant.appPath+'js/'+s.replaceAll('\\.','/');
+			var url=constant.appPath+'api/'+s.replaceAll('\\.','/');
 			var params=p.length==0?'':Ext.util.JSON.encode(p);
 			if(cb)
 				Ext.Ajax.request({method:'POST',async:true,url:url,params:params,

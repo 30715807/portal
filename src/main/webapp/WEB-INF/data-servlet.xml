@@ -40,6 +40,6 @@
 		p:order="3" />
 
 	<bean name="/g" class="spc.webos.web.controller.GridCtrller" />
-	<bean name="/s" class="spc.webos.web.controller.JSCallCtrller"
+	<bean name="/s" class="spc.webos.web.controller.ApiCtrller"
 		p:viewName="serviceView" />
 </beans>

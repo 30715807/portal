@@ -16,7 +16,7 @@
 					p:loginService-ref="loginService">
 					<property name="antPathURLPattern">
 						<list>
-							<value>/js/**</value>
+							<value>/api/**</value>
 							<value>/p/**</value>
 							<value>/d/**</value>
 							<value>/v</value>
@@ -26,7 +26,7 @@
 					</property>
 					<property name="definitionSource">
 						<value>
-							/js/**=public,post
+							/api/**=public,post
 							/d/**=public,get,post
 							/p/*/p_*/**=public,get
 							/p/*/sg_*/**=login,get,sget
@@ -38,7 +38,7 @@
 					<property name="errPageSource">
 						<value>
 							/d/**=json,main/ftl/ex-data
-							/js/**=json,main/ftl/ex-js
+							/api/**=json,main/ftl/ex-api
 							/p/**=page,main/ftl/error
 						</value>
 					</property>
