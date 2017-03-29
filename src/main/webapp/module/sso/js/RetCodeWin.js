@@ -26,7 +26,7 @@ sso.RetCodeWin=function(winId,winName,desk) {
     //alert(ret.data[0].text)
     //alert(Ext.util.JSON.encode(ret))
     /*
-    Ext.Ajax.request({method:'post',url:constant.appPath+'ext/g',
+    Ext.Ajax.request({method:'post',url:constant.appPath+'d/g',
         headers: {'Content-Type':'application/json'},
         params:Ext.util.JSON.encode({sid:'sso_retcd',ssid:'sso_retcdtotal',start:'20',limit:'5'}),
         success:function(o){alert(o.responseText)},
@@ -34,7 +34,7 @@ sso.RetCodeWin=function(winId,winName,desk) {
     });
     
     /*
-    Ext.Ajax.request({method:'get',url:constant.appPath+'ext/g/sid/sso_retcd/ssid/sso_retcdtotal/start/10/limit/5',
+    Ext.Ajax.request({method:'get',url:constant.appPath+'d/g/sid/sso_retcd/ssid/sso_retcdtotal/start/10/limit/5',
         success:function(o){alert(o.responseText)},
         failure:function(){util.notify('\u4E0B\u8F7DJS\u5931\u8D25','\u52A0\u8F7D\u811A\u672C\u5931\u8D25:'+js)}
     });*/

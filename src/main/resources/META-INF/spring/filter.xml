@@ -16,9 +16,9 @@
 					p:loginService-ref="loginService">
 					<property name="antPathURLPattern">
 						<list>
+							<value>/d/**</value>
 							<value>/api/**</value>
 							<value>/p/**</value>
-							<value>/d/**</value>
 							<value>/v</value>
 							<value>/**/*.ftl</value>
 							<value>/logs/*</value>
@@ -26,8 +26,8 @@
 					</property>
 					<property name="definitionSource">
 						<value>
-							/api/**=public,post
 							/d/**=public,get,post
+							/api/**=public,post
 							/p/*/p_*/**=public,get
 							/p/*/sg_*/**=login,get,sget
 							/p/**=login,get
