@@ -21,6 +21,7 @@ sso.RetCodeWin=function(winId,winName,desk) {
         ]
     });
     
+    alert(Ext.util.JSON.encode(util.ajax.sync('eacPersistence.find')('VoucherRule',{id:'1609261321392870101'})));
     //alert("1中".byteLength())
     //var ret = util.ajax.queryPage('sso_retcd','sso_retcdtotal',{start:'0',limit:'1'});
     //alert(ret.data[0].text)
