@@ -15,7 +15,7 @@
 	<context:annotation-config />
 	<bean id="apiView" class="spc.webos.web.view.ApiView" />
 	<bean id="exView" class="spc.webos.web.view.ExceptionView"
-		p:status="555" p:errPage="main/ftl/ex-js" p:contentType="application/json;charset=utf-8" />
+		p:status="555" p:errPage="main/ftl/ex-api" p:contentType="application/json;charset=utf-8" />
 	<bean id="defaultHandlerMapping" class="spc.webos.web.handler.PathNameUrlHandlerMapping"
 		p:order="0" />
 	<bean id="beanNameViewResolver"

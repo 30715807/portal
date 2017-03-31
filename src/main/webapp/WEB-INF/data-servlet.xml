@@ -16,7 +16,7 @@
 	<bean id="serviceView" class="spc.webos.web.view.ServiceView" />
 	<bean id="gridView" class="spc.webos.web.view.GridView" />
 	<bean id="exView" class="spc.webos.web.view.ExceptionView"
-		p:errPage="main/ftl/ex-extjs" p:contentType="application/json;charset=utf-8"
+		p:errPage="main/ftl/ex-data" p:contentType="application/json;charset=utf-8"
 		p:status="222" />
 	<bean id="freemarkerConfigurer"
 		class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer"
